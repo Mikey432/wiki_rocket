@@ -7,21 +7,21 @@ type Props = {
   };
 };
 
-export async function generateMetaData({ params: { searchTerm } }: Props) {
-  const WikiData: Promise<SearchResult> = getAllResults(searchTerm);
-  const data = await WikiData;
-  const displayTerm = searchTerm.replaceAll("20%", " ");
-  if (data?.query?.pages) {
-    return {
-      title: `${displayTerm} not found`,
-    };
-  }
+// export async function generateMetaData({ params: { searchTerm } }: Props) {
+//   const WikiData: Promise<SearchResult> = getAllResults(searchTerm);
+//   const data = await WikiData;
+//   const displayTerm = searchTerm.replaceAll("20%", " ");
+//   if (data?.query?.pages) {
+//     return {
+//       title: `${displayTerm} not found`,
+//     };
+//   }
 
-  return {
-    title: `${displayTerm}`,
-    description: `Search results for ${displayTerm}`,
-  };
-}
+//   return {
+//     title: `${displayTerm}`,
+//     description: `Search results for ${displayTerm}`,
+//   };
+// }
 
 export default async function SearchResult({ params: { searchTerm } }: Props) {
   const WikiData: Promise<SearchResult> = getAllResults(searchTerm);
